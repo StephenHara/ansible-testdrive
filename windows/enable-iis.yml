@@ -6,7 +6,7 @@
       win_feature:
         name: "Web-Server"
         state: present
-        restart: true
+ #       restart: true
         include_sub_features: no
         include_management_tools: no
       register: iis_feature_result
