@@ -10,7 +10,7 @@
         groups:
           - Users
 
-    - name: Add a local and domain user to a local group
+    - name: Add ansible user to Remote Desktop Users group
       win_group_membership:
         name: Remote Desktop Users
         members:
