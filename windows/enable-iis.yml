@@ -4,8 +4,15 @@
   tasks:
     - name: Install IIS Web-Server with sub features and management tools
       win_feature:
-        name: Web-Server
+        name: "Web-Server"
         state: present
-        restart: True
-        include_sub_features: True
-        include_management_tools: True
+        restart: true
+        include_sub_features: no
+        include_management_tools: no
+      register: iis_feature_result
+
+    - name: Reboot System, if IIS Web-Server installation requires it
+      win_reboot:
+        shutdown_timeout_sec: 1200
+        reboot_timeout_sec: 1200
+      when: iis_feature_result.reboot_required
