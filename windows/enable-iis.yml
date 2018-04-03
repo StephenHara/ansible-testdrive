@@ -6,9 +6,8 @@
       win_feature:
         name: "Web-Server"
         state: present
- #       restart: true
-        include_sub_features: no
-        include_management_tools: no
+        include_sub_features: yes
+        include_management_tools: yes
       register: iis_feature_result
 
     - name: Reboot System, if IIS Web-Server installation requires it
